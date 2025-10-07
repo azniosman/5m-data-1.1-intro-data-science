@@ -15,7 +15,15 @@ def fizz_buzz(number):
     >>> fizz_buzz(15)
     'FizzBuzz'
     """
-    return
+    
+    if number % 3 == 0 and number % 5 == 0:                       # Check if can be divided by 3 and 5
+        return("FizzBuzz")
+    elif number % 3 == 0:                                         # Check if can be divided by 3
+        return("Fizz")
+    elif number % 5 == 0:                                         # Check if can be divided by 5
+        return("Buzz")
+    else:
+        return(number)
 
 
 # Question 2
@@ -30,7 +38,11 @@ def sum_of_squares(numbers):
     >>> sum_of_squares([2, 4, 6])
     56
     """
-    return
+    
+    total = 0                                                      # Variable to store the total
+    for num in numbers:                                            # Loop through each numbers in list
+        total = total + num ** 2                                   # Square the number and add to total
+    return total
 
 
 # Question 3
@@ -45,7 +57,13 @@ def count_vowels(string):
     >>> count_vowels("aeiou")
     5
     """
-    return
+    
+    count = 0                                                      # Variable for count
+    vowels = "aeiou"                                               # Define the vowels
+    for char in string:                                            # Loop through each character in the string
+        if char in vowels:                                         # Check if character is a vowel
+            count = count + 1                                      # If vowel add to count
+    return count
 
 
 # Question 4
@@ -60,7 +78,20 @@ def count_repeats(string):
     >>> count_repeats("aeiou")
     0
     """
-    return
+    
+    char_count = {}                                               # Create dictionary to count each character 
+    for char in string:                                           # Count how many times each character is repeated 
+        if char in char_count:
+            char_count[char] = char_count[char] + 1               # If repeated add to count 
+        else:
+            char_count[char] = 1                                  # If no repeat count as 1
+    
+    repeats = 0                                                   # Count total repeated characters 
+    for count in char_count.values():
+        if count > 1:
+            repeats = repeats + count
+    
+    return repeats
 
 
 if __name__ == "__main__":
